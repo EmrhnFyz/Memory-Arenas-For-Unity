@@ -31,6 +31,9 @@ public unsafe class Demo : MonoBehaviour
 		_inventory.AddItem(ItemType.IronOre, 20);
 		_inventory.AddItem(ItemType.Stick, 10);
 
+		// Simulate crafting an Iron Sword.
+		// This call will return a pointer to a craft node representing the root of the crafting tree.
+		// Everything below this node,is built recursively in the arena.
 		var root = _craftSimulator.SimulateCraft(_allocator, ItemType.IronSword, 1);
 
 		Debug.Log($"Can Craft {root->OutputItem}: {root->AmountAvailable}/{root->AmountNeeded}");
@@ -42,9 +45,7 @@ public unsafe class Demo : MonoBehaviour
 		}
 
 		// Clean up
-		_allocator.Reset();
-		
-		
+		_allocator.Reset(); // clear the internal offset to make memory available for reuse
 	}
 
 	private void OnDestroy()
