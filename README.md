@@ -3,7 +3,7 @@
 ## Project Overview
 This project demonstrates a minimal, high-performance memory arena (arena allocator) for Unity, 
 designed to efficiently allocate and reset large numbers of temporary objects without triggering the garbage collector (GC). 
-The system is showcased with a recursive, tree-shaped crafting simulation—an ideal use case for memory arenas due to its dynamic, graph-like data structures.
+The system is showcased with a recursive, tree-shaped crafting simulation, an ideal use case for memory arenas due to its dynamic, graph-like data structures.
 
 ## Why Memory Arenas?
 In Unity and other game engines, local variables are cheap because the CPU allocates them on the stack—a fast, temporary block of memory. 
